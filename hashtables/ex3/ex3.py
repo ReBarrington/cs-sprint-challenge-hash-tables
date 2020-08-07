@@ -12,11 +12,12 @@ def intersection(arrays):
                 # if already there, add 1 time
                 frequency_dict[num] += 1
 
-        # if num in every list of arrays:
-        if num in frequency_dict.items() == len(arrays):
-            result.append(num)
+    # if the second part of tuple, (num of occurances) is equal to the number of arrays:
+    for tup in frequency_dict.items():
+        if tup[1] == len(arrays) and tup[0] not in result:
+            result.append(tup[0])
         
-        return result
+    return result
 
 if __name__ == "__main__":
     arrays = []
