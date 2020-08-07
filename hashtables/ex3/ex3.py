@@ -1,22 +1,22 @@
 
 def intersection(arrays):
-    """
-    YOUR CODE HERE
-    """
-    # Your code here
+    frequency_dict = dict()
     result = []
-    dataset = {}
 
-    for i in range (len(arrays) - 1):
-        array = arrays[i]
-        next_array = arrays[i + 1]
+    for i in range(len(arrays)):
+        for num in arrays[i]:
+            if num not in frequency_dict:
+                # if not there, put it there as 1 time
+                frequency_dict[num] = 1
+            else:
+                # if already there, add 1 time
+                frequency_dict[num] += 1
 
-        dataset[i] = (array)
-
-        print(dataset)
+        # if num in every list of arrays:
+        if num in frequency_dict.items() == len(arrays):
+            result.append(num)
         
-    return result
-
+        return result
 
 if __name__ == "__main__":
     arrays = []
