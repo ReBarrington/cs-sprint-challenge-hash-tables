@@ -1,8 +1,22 @@
+
 def intersection(arrays):
     """
     YOUR CODE HERE
     """
     # Your code here
+    result = []
+    no_intersection = {}
+
+    for i in range (len(arrays) - 1):
+        array = arrays[i]
+        next_array = arrays[i + 1]
+
+        for num in array:
+            if num in next_array:
+                result.append(num)
+            else:
+                no_intersection[num] = (array)
+                break
 
     return result
 
