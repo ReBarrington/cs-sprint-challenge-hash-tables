@@ -8,22 +8,19 @@ def reconstruct_trip(tickets, length):
 
     route = [None] * length
     connections = {}
-    i = 0
 
     for ticket in tickets:
 
         connections[ticket.source] = ticket.destination
 
-        # reset the initial destination
-        destination = connections[ticket.source]
-        # iterate over the length
+    # reset the initial destination
+    destination = connections['NONE']
+    # iterate over the length
     
-    while i < (length):
+    for i in range(length):
         # set the route i to destination
         route[i] = destination
         # set the destination to the next ticket's destination
         destination = connections[destination]
-        i += 1
 
     return route
-
