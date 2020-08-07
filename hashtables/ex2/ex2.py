@@ -4,29 +4,26 @@ class Ticket:
         self.source = source
         self.destination = destination
 
-    def set_destination(self, new_destination):
-        self.destination = new_destination
-
 def reconstruct_trip(tickets, length):
 
-    route = []
+    route = [None] * length
     connections = {}
+    i = 0
 
-    for i in range(length):
+    for ticket in tickets:
 
-        if tickets[i].source not in connections.values():
-            connections[tickets[i].source] = [tickets[i].destination]
-        
-        else:
-            # this source/key is a value inside connections 
-            connections[tickets[i].source].append(tickets[i].destination)
+        connections[ticket.source] = ticket.destination
 
-        if tickets[i].source == "NONE":
-            # first flight
-            route.append(connections.get(tickets[i].source))
-            continue
+        # reset the initial destination
+        destination = connections['NONE']
+        # iterate over the length
+    
+    while i < (length):
+        # set the route i to destination
+        route[i] = destination
+        # set the destination to the next ticket's destination
+        destination = connections[destination]
+        i += 1
 
-    # # last destination will be NONE
-    # route.pop()
     return route
 
