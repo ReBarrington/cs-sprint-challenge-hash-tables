@@ -5,19 +5,16 @@ def intersection(arrays):
     """
     # Your code here
     result = []
-    no_intersection = {}
+    dataset = {}
 
     for i in range (len(arrays) - 1):
         array = arrays[i]
         next_array = arrays[i + 1]
 
-        for num in array:
-            if num in next_array:
-                result.append(num)
-            else:
-                no_intersection[num] = (array)
-                break
+        dataset[i] = (array)
 
+        print(dataset)
+        
     return result
 
 
